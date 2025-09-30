@@ -1,6 +1,14 @@
 import re
 from playwright.sync_api import Playwright, sync_playwright, expect
 
+firstname = "firstname-input"
+lastname = "lastname-input"
+email = "email-input"
+birthdate = "birthdate-input"
+avtar = "link", name="10"
+password ="password-input"
+login_button = "button", name="LogIn"
+
 
 def test_register(playwright: Playwright) -> None:
     browser = playwright.chromium.launch(headless=False)
