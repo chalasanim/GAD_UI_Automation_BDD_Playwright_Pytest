@@ -11,7 +11,7 @@ Scenario Outline: As a new user,I should be able to register to log in.
     And I entered user <birthdate>
     And I entered user <password>
     And I selected user <avtar>
-    And I clicke <register> button    	  
+    And I clicked <register> button    	  
    Then User created messaged displayed 
     And the login screen is launnched
   Examples: 
