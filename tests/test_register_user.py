@@ -3,8 +3,8 @@ import random
 from pages.MainPage import MainPage 
 from pages.RegisterUserPage import RegisterUserPage
 from pages.LoginPage import LoginPage
+from playwright.sync_api import expect
 
-from playwright.sync_api import Playwright, sync_playwright, expect
 
 def test_register_user(page, user_data) -> None:
     
@@ -22,20 +22,29 @@ def test_register_user(page, user_data) -> None:
     register_page.enter_birthdate( user_data["birthdate"])
     register_page.click_done_btn()
     register_page.enter_password(user_data["password"])
+
     
     #register_page.select_profile_image(user_data["profileimage"])
+    select =page.get_by_role('combobox')  
+    #options= select.locator('option')
+    select.select_option(user_data["profileimage"]) 
+
     register_page.click_register()  
 
+    register_page.get_alert_message_screenshot()
+
     expect(page.get_by_test_id("alert-popup")).to_contain_text("User created")
+
 
     login_page =LoginPage(page)
 
 
-    login_page.enter_username(user_data["email"])
+    login_page.enter_username("utes9783@gmail.com")
+
     login_page.enter_password(user_data["password"])
     login_page.click_login()
-
-    expect(page.locator("#username")).to_contain_text("Hello Test!")
+    text_to_check = "Hello "+user_data["firstname"]+"!"
+    expect(page.locator("#username")).to_contain_text(text_to_check)
 
 
   

@@ -20,7 +20,7 @@ class MainPage(BasePage):
     def Register_Link(self) -> Locator:
         return self.locator(self.register_link)
         #return self.page.get_by_role('link', name=self.register_link)
-        
+       
     
     def click_user_avtar(self):
         """Click dropdown button using BasePage click method"""
@@ -29,3 +29,6 @@ class MainPage(BasePage):
     def click_register_link(self):
         """Click register link using BasePage click method"""
         self.Register_Link.click()  # Uses inherited click() from BasePage
+    
+
+        

@@ -16,7 +16,7 @@ def launch_gad('url'):
 @given('I hovered on Login icon and clicked Register option')
 def invoke_register():
   pass
-@given('And User Registration form is Launched)')
+@given('And User Registration form is Launched)'
 def form_invoked():
   pass
 @when('I entered user <firstname>')
